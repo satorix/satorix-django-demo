@@ -1,0 +1,13 @@
+# Authentication
+#
+#   Allow listed networks to access without auth, otherwise require password
+
+satisfy any;
+<% ENV['SATORIX_AUTHENTICATION_ALLOWED_IPS'].to_s.split(' ').each do |target| %>
+  allow <%= target %>;
+<% end %>
+auth_basic "Please Log In";
+auth_basic_user_file <%= File.join(File.dirname(__FILE__), 'htpasswd') %>;
+deny all;
+
+# End Authentication

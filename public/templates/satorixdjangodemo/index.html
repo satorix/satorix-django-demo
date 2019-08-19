@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron text-center p-4 border-bottom">
+  <div class="container">
+    <img class="img-fluid" alt="Coffee mug, iMac, iPhone, and pencil icon." src="{% static 'satorixdjangodemo/images/home-hero-image.png' %}">
+    <h1>Satorix demo application for Python Django</h1>
+    <p>A sample application showing how to get your Python Django application working in a Satorix Cloud cluster environment.</p>
+    <a type="button" class="btn btn-lg btn-default" href="https://www.satorix.com/docs/articles/app_using_python">Satorix Python Application</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/satorix/satorix-django-demo">Demo app on GitHub</a>
+  </div>
+</div>
+<div class="container pb-4">
+  <div class="row">
+    <div class="col-md">
+      <h3>Next Steps</h3>
+      <h5>To explore and modify this app</h5>
+      <ul>
+        <li>Download a local copy of the demo app
+          <ul>
+            <li><code>git clone https://github.com/satorix/satorix-django-demo.git</code></li>
+          </ul>
+        </li>
+        <li>Change directory into the local repository
+          <ul>
+            <li><code>cd satorix-django-demo</code></li>
+          </ul>
+        </li>
+        <li>Rename Github origin
+          <ul>
+            <li><code>git remote rename origin old-origin</code></li>
+          </ul>
+        </li>
+        <li>Associate this repository with <code>appname</code> in your Satorix Gitlab
+          <ul>
+            <li><code>git remote add origin https://gitlab.clientid.satorix.cloud/satorix/appname.git</code></li>
+          </ul>
+        </li>
+        <li>You'll now be set up to run the app locally, or deploy to your Satorix Hosting Cluster</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <h3>How to use this app</h3>
+      <ul>
+        <li>Enable a Postgres database in the Resources tab for this project in your <a href="https://dashboard.satorix.cloud">Satorix Dashboard</a></li>
+        <li>Merge this project into the <code>staging</code> or <code>production</code> branches in your Satorix Gitlab to deploy to the corresponding environment</li>
+        <li>During the deploy to your Satorix Hosting Cluster all the dependencies required to run this application will be installed</li>
+        <li>This application runs as a single web process in your cluster by default</li>
+        <li>The <a href="{% url 'polls:index' %}">Polls app</a> can be used to test database access</li>
+        <li>You can manage the site with the <a href="{% url 'admin:index' %}">built in Django admin interface</a> using the initially created admin user</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <h3>Required App Variables</h3>
+    <h6>The <a href="https://dashboard.satorix.cloud">Satorix Dashboard</a> allows input of settings that are utilized by
+    your application. Here is a list of the required settings for this application to run:</h6>
+    <ul>
+      <li><code>SECRET_KEY</code>
+          <ul>
+            <li>Django secret key used in production</li>
+          </ul>
+      </li>
+      <li><code>DJANGO_SU_NAME</code>
+          <ul>
+            <li>Initial Django admin user to create</li>
+          </ul>
+      </li>
+      <li><code>DJANGO_SU_EMAIL</code>
+          <ul>
+            <li>Email address for initial Django admin user</li>
+          </ul>
+      </li>
+      <li><code>DJANGO_SU_PASSWORD</code>
+          <ul>
+            <li>Password for initial Django admin user</li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock content %}

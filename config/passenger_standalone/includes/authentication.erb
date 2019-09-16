@@ -22,13 +22,12 @@
   end
 
   allowed_without_auth = ENV['SATORIX_AUTHENTICATION_ALLOWED_IPS'].to_s.split
-  allowed_without_auth = ['any'] if allowed_without_auth.empty?
+  allowed_without_auth = ['all'] if allowed_without_auth.empty?
 -%>
 
 # Allow listed networks to access without auth, otherwise require password if defined
 location / {
   satisfy any;
-  deny all;
 <% allowed_without_auth.each do |target| -%>
   allow <%= target %>;
 <% end -%>
@@ -36,6 +35,7 @@ location / {
   auth_basic "Please Log In";
   auth_basic_user_file <%= password_file_location('htpasswd') %>;
 <% end -%>
+  deny all;
 }
 
 # End Authentication

@@ -1,5 +1,5 @@
 # We are using the Satorix base image from https://hub.docker.com/r/satorix/base/
-image: 'satorix/base'
+image: 'satorix/base:18'
 
 # Global caching directives.
 cache:

@@ -7,16 +7,18 @@ cache:
   paths:
     - 'tmp/satorix/cache' # To cache buildpack output between runs.
 
-
 .satorix: &satorix
   script:
     - gem install satorix --source https://gems.iexposure.com --no-document
     - satorix
 
-
-django_test:
+# Safety checks your installed dependencies for known security vulnerabilities https://pyup.io/safety/
+safety:
   <<: *satorix
 
+# Test Django using unittest
+django_test:
+  <<: *satorix
 
 deploy_with_flynn:
   environment:

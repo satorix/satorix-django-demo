@@ -9,7 +9,7 @@ cache:
 
 .satorix: &satorix
   script:
-    - gem install satorix --source https://gems.iexposure.com --no-document
+    - gem install satorix --no-document
     - satorix
 
 # Safety checks your installed dependencies for known security vulnerabilities https://pyup.io/safety/

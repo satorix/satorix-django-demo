@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container pt-3">
-    <h2>{{ question.question_text }}</h2>
+    <h1>{{ question.question_text }}</h1>
     <div class="container p-3">
         <ul class="list-group p-3">
             {% for choice in question.choice_set.all %}

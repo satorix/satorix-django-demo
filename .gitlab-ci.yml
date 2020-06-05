@@ -18,9 +18,9 @@ cache:
     POSTGRES_USER: postgres
 
 .satorix: &satorix
+  <<: *use_postgres
   variables:
     DATABASE_URL: "postgres://postgres:password@postgres:5432/test"
-  <<: *use_postgres
   script:
     - gem install satorix --no-document
     - satorix

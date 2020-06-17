@@ -7,6 +7,9 @@ cache:
   paths:
     - 'tmp/satorix/cache' # To cache buildpack output between runs.
 
+variables:
+  DATABASE_URL: "postgres://postgres:password@postgres:5432/test"
+
 # Configure postgresql environment variables (https://hub.docker.com/r/_/postgres/)
 .use_postgres: &use_postgres
   services:
@@ -19,8 +22,6 @@ cache:
 
 .satorix: &satorix
   <<: *use_postgres
-  variables:
-    DATABASE_URL: "postgres://postgres:password@postgres:5432/test"
   script:
     - gem install satorix --no-document
     - satorix
